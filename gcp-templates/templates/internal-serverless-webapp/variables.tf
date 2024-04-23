@@ -1,29 +1,24 @@
 variable "project" {
-  type        = string
   description = "Project ID"
+  type        = string
 }
 
 variable "region" {
-  type        = string
   description = "Region"
+  type        = string
 }
 
 variable "name" {
-  type        = string
   description = "prefix for all resources created in this example"
+  type        = string
 }
 
 variable "domain" {
-  type        = string
   description = "Domain for which the SSL certificate will be valid"
+  type        = string
 }
 
 variable "dns_zone" {
-  type        = string
   description = "The DNS zone you'll add the IP address to"
-}
-
-variable "cloud_function" {
-  description = "Cloud Func"
   type        = string
 }
