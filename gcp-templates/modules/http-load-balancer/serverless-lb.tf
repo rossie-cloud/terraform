@@ -1,9 +1,9 @@
-locals {
+/*locals {
   Labels = {
     Owner    = var.owner
-    Template = "External serverless web application"
+    #Template = "External serverless web application"
   }
-}
+}*/
 
 resource "google_compute_global_address" "default" {
   name = "${var.name_prefix}-address"
@@ -63,7 +63,7 @@ resource "google_compute_global_forwarding_rule" "default" {
   port_range = "443"
   ip_address = google_compute_global_address.default.address
 
-  labels = local.Labels
+  #labels = local.Labels
 }
 
 
@@ -89,7 +89,7 @@ resource "google_compute_global_forwarding_rule" "https_redirect" {
   port_range = "80"
   ip_address = google_compute_global_address.default.address
 
-  labels = local.Labels
+  #labels = local.Labels
 }
 
 # fetching already created DNS zone

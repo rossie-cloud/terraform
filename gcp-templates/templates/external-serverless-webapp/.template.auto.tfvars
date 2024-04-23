@@ -1,5 +1,5 @@
 ## common
-name_prefix = "ext-serverless-webapp"
+name_prefix = "test1-20240423" #"ext-serverless-webapp"
 owner       = "Automotive Cloud Center of Excellence"
 project_id  = "perfect-day-417915"
 region      = "us-central1"

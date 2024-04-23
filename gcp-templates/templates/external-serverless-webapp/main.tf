@@ -1,22 +1,9 @@
-locals {
-/*  GCS {
-    Location = var.location
-  }
-
-  GCF = {
-    Ingress = var.ingress_settings
-  }
-
-  WebApp {
-    Runtime     = var.runtime
-    Entry_point = var.entry_point
-  }*/
-
+/*locals {
   Labels = {
     Owner    = var.owner
     Template = "External serverless web application"
   }
-}
+}*/
 
 module "load_balancer" {
   source = "../../modules/http-load-balancer"
@@ -41,7 +28,7 @@ resource "google_storage_bucket" "bucket" {
   name     = "test-bucket-${var.name_prefix}-${random_id.ids.dec}"
   location = var.location
 
-  labels = local.Labels
+  #labels = local.Labels
 }
 
 resource "google_storage_bucket_object" "zip" {
@@ -64,7 +51,7 @@ resource "google_cloudfunctions_function" "function" {
 
   ingress_settings = var.ingress_settings
 
-  labels = local.Labels
+  #labels = local.Labels
 }
 
 # IAM entry for all users to invoke the function
