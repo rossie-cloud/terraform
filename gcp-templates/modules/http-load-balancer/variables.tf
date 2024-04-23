@@ -22,8 +22,3 @@ variable "dns_zone" {
   type        = string
   description = "The DNS zone you'll add the IP address to"
 }
-
-variable "cloud_function" {
-  description = "The Cloud Function associated with the LB"
-  type        = string
-}

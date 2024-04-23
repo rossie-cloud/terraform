@@ -7,8 +7,6 @@ module "load_balancer" {
 
   domain   = var.domain
   dns_zone = var.dns_zone
-  
-  cloud_function = google_cloudfunctions_function.function.name
 }
 
 data "archive_file" "source" {

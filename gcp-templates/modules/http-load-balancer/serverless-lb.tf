@@ -17,7 +17,7 @@ resource "google_compute_region_network_endpoint_group" "cloudrun_neg" {
   network_endpoint_type = "SERVERLESS"
   region                = var.region
   cloud_function {
-    function = var.cloud_function
+    function = "${var.name}-function"
   }
 }
 
