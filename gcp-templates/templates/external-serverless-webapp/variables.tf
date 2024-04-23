@@ -22,6 +22,7 @@ variable "owner" {
 
 ## templates
 # http serverless lb
+
 variable "domain" {
   description = "Domain for which the SSL certificate will be valid"
   type        = string
