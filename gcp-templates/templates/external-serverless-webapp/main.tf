@@ -1,12 +1,34 @@
+locals {
+/*  GCS {
+    Location = var.location
+  }
+
+  GCF = {
+    Ingress = var.ingress_settings
+  }
+
+  WebApp {
+    Runtime     = var.runtime
+    Entry_point = var.entry_point
+  }*/
+
+  Labels = {
+    Owner    = var.owner
+    Template = "External serverless web application"
+  }
+}
+
 module "load_balancer" {
   source = "../../modules/http-load-balancer"
 
-  project = var.project
-  name   = var.name
-  region = var.region
+  project_id  = var.project_id
+  region      = var.region
+  name_prefix = var.name_prefix
+  owner       = var.owner
 
-  domain   = var.domain
-  dns_zone = var.dns_zone
+  domain     = var.domain
+  dns_zone   = var.dns_zone
+  enable_cdn = var.enable_cdn
 }
 
 data "archive_file" "source" {
@@ -16,29 +38,33 @@ data "archive_file" "source" {
 }
 
 resource "google_storage_bucket" "bucket" {
-  name     = "test-bucket-${var.name}-${random_id.ids.dec}"
-  location = "US"
+  name     = "test-bucket-${var.name_prefix}-${random_id.ids.dec}"
+  location = var.location
+
+  labels = local.Labels
 }
 
 resource "google_storage_bucket_object" "zip" {
   source       = data.archive_file.source.output_path
   content_type = "application/zip"
 
-  name   = "src-${var.name}-${random_id.ids.dec}.zip"
+  name   = "src-${var.name_prefix}-${random_id.ids.dec}.zip"
   bucket = google_storage_bucket.bucket.name
 }
 
 resource "google_cloudfunctions_function" "function" {
-  name    = "${var.name}-function"
-  runtime = "python312"
+  name    = "${var.name_prefix}-function"
+  runtime = var.runtime
   region  = var.region
 
   source_archive_bucket = google_storage_bucket.bucket.name
   source_archive_object = google_storage_bucket_object.zip.name
-  entry_point           = "hello_world"
+  entry_point           = var.entry_point
   trigger_http          = true
 
-  ingress_settings = "ALLOW_INTERNAL_AND_GCLB"
+  ingress_settings = var.ingress_settings
+
+  labels = local.Labels
 }
 
 # IAM entry for all users to invoke the function
