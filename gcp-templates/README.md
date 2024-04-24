@@ -6,7 +6,7 @@ Simple overview of use/purpose.
 
 An in-depth paragraph about your project and overview of use.
 
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/rossie-cloud/terraform/blob/main/gcp-templates/modules/http-load-balancer/http-lb-diagram.png)
 
 ## Getting Started
 
