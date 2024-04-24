@@ -1,10 +1,3 @@
-/*locals {
-  Labels = {
-    Owner    = var.owner
-    #Template = "External serverless web application"
-  }
-}*/
-
 resource "google_compute_global_address" "default" {
   name = "${var.name_prefix}-address"
 }

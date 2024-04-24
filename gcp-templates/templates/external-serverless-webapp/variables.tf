@@ -1,5 +1,4 @@
 ## common
-
 variable "project_id" {
   description = "Project ID"
   type        = string
@@ -17,12 +16,11 @@ variable "name_prefix" {
 
 variable "owner" {
   description = "The owner which will be tagged on all resources"
-  type        = string
+  type        = string 
 }
 
 ## templates
 # http serverless lb
-
 variable "domain" {
   description = "Domain for which the SSL certificate will be valid"
   type        = string
