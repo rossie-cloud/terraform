@@ -1,7 +1,10 @@
 # Template - External serverless static web page
 
+> [!NOTE]
+> This template uses Cloud Functions to deploy the static web page.
+
 ## Documentation
-This template uses Cloud Functions to deploy the static web page.
+[Link to documentation]()
 
 ## Summary
 This blueprint is the bare minimum foundation for deploying an external serverless static web page
