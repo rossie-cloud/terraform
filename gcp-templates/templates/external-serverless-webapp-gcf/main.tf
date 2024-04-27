@@ -1,12 +1,5 @@
-/*locals {
-  Labels = {
-    Owner    = var.owner
-    Template = "External serverless web application"
-  }
-}*/
-
 module "load_balancer" {
-  source = "../../modules/http-load-balancer"
+  source = "../../modules/external-http-load-balancer-serverless-neg"
 
   project_id  = var.project_id
   region      = var.region
@@ -16,6 +9,8 @@ module "load_balancer" {
   domain     = var.domain
   dns_zone   = var.dns_zone
   enable_cdn = var.enable_cdn
+  private_key = var.private_key
+  certificate = var.certificate
 }
 
 data "archive_file" "source" {

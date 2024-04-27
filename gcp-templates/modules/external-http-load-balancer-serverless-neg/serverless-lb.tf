@@ -3,8 +3,6 @@ resource "google_compute_global_address" "default" {
 }
 
 resource "google_compute_managed_ssl_certificate" "default" {
-  provider = google-beta
-
   name = "${var.name_prefix}-cert"
   managed {
     domains = ["${var.domain}"]
@@ -56,9 +54,7 @@ resource "google_compute_global_forwarding_rule" "default" {
   port_range = "443"
   ip_address = google_compute_global_address.default.address
 
-  #labels = local.Labels
 }
-
 
 resource "google_compute_url_map" "https_redirect" {
   name = "${var.name_prefix}-https-redirect"
@@ -81,8 +77,6 @@ resource "google_compute_global_forwarding_rule" "https_redirect" {
   target     = google_compute_target_http_proxy.https_redirect.id
   port_range = "80"
   ip_address = google_compute_global_address.default.address
-
-  #labels = local.Labels
 }
 
 # fetching already created DNS zone

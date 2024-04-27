@@ -58,3 +58,13 @@ variable "runtime" {
   description = "The runtime which the function is going to run"
   type        = string
 }
+
+variable "private_key" {
+  type        = string
+  description = "Path to private key in PEM format."
+}
+
+variable "certificate" {
+  type        = string
+  description = "Path to certificate in PEM format."
+}
