@@ -12,6 +12,6 @@ Important things to consider:
 
 A load balancer using a serverless NEG backend requires special configuration only for the backend service that is ilustrated in the diagram below:
 
-![diagram](https://github.com/rossie-cloud/terraform/blob/main/gcp-templates/modules/http-load-balancer/http-lb-diagram.png)
+![diagram](./architecture.png)
 
 
