@@ -9,8 +9,6 @@ module "load_balancer" {
   domain     = var.domain
   dns_zone   = var.dns_zone
   enable_cdn = var.enable_cdn
-  private_key = var.private_key
-  certificate = var.certificate
 }
 
 data "archive_file" "source" {

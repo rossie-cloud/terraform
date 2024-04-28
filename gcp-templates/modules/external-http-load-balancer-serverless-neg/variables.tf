@@ -35,13 +35,3 @@ variable "enable_cdn" {
   type        = string
   description = "Enables CDN for the backend service"
 }
-
-variable "private_key" {
-  type        = string
-  description = "Path to private key in PEM format."
-}
-
-variable "certificate" {
-  type        = string
-  description = "Path to certificate in PEM format."
-}

@@ -9,8 +9,6 @@ region      = "us-central1"
 dns_zone = "my-public-zone"
 domain   = "functions.rossie.cloud"
 enable_cdn   = true
-private_key = ""
-certificate = ""
 
 # gcs
 location = "US"
