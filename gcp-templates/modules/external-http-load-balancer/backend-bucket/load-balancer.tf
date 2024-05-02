@@ -1,6 +1,8 @@
+/*
 locals {
     timestamp = formatdate("YYYYMMDDhhmm", timestamp())
 }
+*/
 
 resource "google_compute_global_address" "default" {
   name = "${var.name_prefix}-address-${var.timestamp}"
@@ -17,7 +19,7 @@ resource "google_compute_backend_bucket" "default" {
   name = "${var.name_prefix}-backend-${var.timestamp}"
   enable_cdn  = var.enable_cdn
 
-  bucket_name = "${var.name_prefix}-test-bucket-${var.timestamp}"
+  bucket_name = "${var.name_prefix}-bucket-${var.timestamp}"
 }
 
 # Create url map

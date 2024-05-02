@@ -1,5 +1,6 @@
 locals {
   timestamp = formatdate("YYYYMMDDhhmmss", timestamp())
+  bucket_name = google_storage_bucket.bucket.name
 }
 
 module "load_balancer" {
@@ -14,6 +15,7 @@ module "load_balancer" {
   enable_cdn = var.enable_cdn
 
   timestamp = local.timestamp
+  # bucket_name = local.bucket_name
 }
 
 resource "google_storage_bucket" "bucket" {

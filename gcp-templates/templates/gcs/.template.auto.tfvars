@@ -1,5 +1,5 @@
 ## common
-name_prefix = "test1" #"ext-serverless-webapp"
+name_prefix = "test2" #"ext-serverless-webapp"
 project_id  = "perfect-day-417915"
 region      = "us-central1"
 

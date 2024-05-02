@@ -35,3 +35,10 @@ variable "timestamp" {
   type        = string
   description = "To pass a random string that will change everythinme code is executed"
 }
+
+/*
+variable "bucket_name" {
+  type        = string
+  description = "To pass a the bucket name"
+}
+*/
